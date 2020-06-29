@@ -1,6 +1,164 @@
 @import 'fonts';
 
+@container: 1200px;
+@breakpoint-s: 480px;
+@breakpoint-l: 768px;
+@color-gray: #cccccc;
+@color-white: #ffffff;
+@color-blue: #225378;
+@color-turqoise: #1695a3;
+@color-orange: #eb7f00;
+@title-color: #333333;
+@subtitle-color: #595959;
+@text-color: #595959;
+@stroke: 2pt solid @color-gray;
+@spacing: 20px;
+@border: @spacing solid;
+@font-bree: 'Bree Serif', sans-serif;
+
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
+  color: @text-color;
   background-image: url('../img/background.png');
+  margin: 0;
+}
+
+.page {
+  margin: @spacing;
+
+  @media only screen and (min-width: @breakpoint-s) {
+    margin: calc(@spacing * 2);
+  }
+}
+
+.page-center {
+  max-width: @container;
+  margin: 0 auto;
+}
+
+#content {
+  display: block;
+
+  @media only screen and (min-width: @breakpoint-l) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: calc(@spacing * 2);
+    justify-content: center;
+  }
+}
+
+.trifecta {
+  border-left: @border;
+  background: @color-white;
+  margin-bottom: @spacing;
+}
+
+.issues {
+  border-left-color: @color-blue;
+
+  .block-title {
+    color: @color-blue;
+  }
+}
+
+.news {
+  border-left-color: @color-turqoise;
+
+  .block-title {
+    color: @color-turqoise;
+  }
+}
+
+.events {
+  border-left-color: @color-orange;
+
+  .block-title {
+    color: @color-orange;
+  }
+}
+
+.block-inner {
+  padding: calc(@spacing / 2) @spacing;
+}
+
+.block-title {
+  position: relative;
+  display: grid;
+  align-items: center;
+  font-family: @font-bree;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  &:after {
+    display: inline-block;
+    content: '-';
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    position: absolute;
+    right: 0;
+    border: 2px solid;
+    border-radius: 50%;
+
+    @media only screen and (min-width: @breakpoint-l) {
+      display: none;
+    }
+
+  }
+}
+
+.block-content {
+  position: relative;
+  height: auto;
+  overflow: visible;
+  transition: all 0.25s ease-in;
+}
+
+.views-row {
+  border-bottom: @stroke;
+  margin: @spacing 0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.node-item {
+  a {
+    text-decoration: none;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    color: @title-color;
+  }
+
+  .subtitle {
+    font-family: @font-bree;
+    font-size: 21px;
+    color: @subtitle-color;
+  }
+}
+
+.node-content {
+  margin-bottom: @spacing;
+}
+
+.hide {
+  .block-title {
+    &:after {
+      content: '+';
+    }
+  }
+  .block-content {
+    height: 0;
+    overflow: hidden;
+  }
 }

@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Roboto:400,700');
+html {
+  font-size: 16px;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #595959;
+  background-image: url('../img/background.png');
+  margin: 0;
+}
+.page {
+  margin: 20px;
+}
+@media only screen and (min-width: 480px) {
+  .page {
+    margin: calc(40px);
+  }
+}
+.page-center {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#content {
+  display: block;
+}
+@media only screen and (min-width: 768px) {
+  #content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: calc(40px);
+    justify-content: center;
+  }
+}
+.trifecta {
+  border-left: 20px solid;
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+.issues {
+  border-left-color: #225378;
+}
+.issues .block-title {
+  color: #225378;
+}
+.news {
+  border-left-color: #1695a3;
+}
+.news .block-title {
+  color: #1695a3;
+}
+.events {
+  border-left-color: #eb7f00;
+}
+.events .block-title {
+  color: #eb7f00;
+}
+.block-inner {
+  padding: calc(10px) 20px;
+}
+.block-title {
+  position: relative;
+  display: grid;
+  align-items: center;
+  font-family: 'Bree Serif', sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.block-title:after {
+  display: inline-block;
+  content: '-';
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  line-height: 25px;
+  position: absolute;
+  right: 0;
+  border: 2px solid;
+  border-radius: 50%;
+}
+@media only screen and (min-width: 768px) {
+  .block-title:after {
+    display: none;
+  }
+}
+.block-content {
+  position: relative;
+  height: auto;
+  overflow: visible;
+  transition: all 0.25s ease-in;
+}
+.views-row {
+  border-bottom: 2pt solid #cccccc;
+  margin: 20px 0;
+}
+.views-row:last-child {
+  border-bottom: none;
+}
+.node-item a {
+  text-decoration: none;
+}
+.node-item .title {
+  font-size: 1.5rem;
+  color: #333333;
+}
+.node-item .subtitle {
+  font-family: 'Bree Serif', sans-serif;
+  font-size: 21px;
+  color: #595959;
+}
+.node-content {
+  margin-bottom: 20px;
+}
+.hide .block-title:after {
+  content: '+';
+}
+.hide .block-content {
+  height: 0;
+  overflow: hidden;
+}
